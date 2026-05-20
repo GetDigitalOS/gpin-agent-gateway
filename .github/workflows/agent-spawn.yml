@@ -1,0 +1,55 @@
+# Agent Spawn Trigger — fires when "agent-ready" label is added to an issue
+# Installed by Project Hub for Tier 2+ projects
+# Setup: Self-hosted runner on dev machine + AO_DASHBOARD_URL org secret
+# See: docs/ADR-004-agent-spawn-trigger.md
+
+name: Agent Spawn Trigger
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+
+jobs:
+  spawn:
+    if: github.event.label.name == 'agent-ready'
+    runs-on: self-hosted
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Trigger AO spawn
+        run: |
+          curl -sf -X POST "$AO_URL/api/spawn" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"projectId\": \"${{ github.event.repository.name }}\",
+              \"issueId\": \"${{ github.event.issue.number }}\"
+            }"
+        env:
+          AO_URL: ${{ secrets.AO_DASHBOARD_URL }}
+
+      - name: Comment on issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '🤖 Agent spawned. Claude Code is working on this issue.\n\nA PR will be created when the work is ready for review.'
+            });
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '⚠️ Agent spawn failed. The orchestrator may be offline.\n\nTry spawning manually from the [dashboard](http://localhost:4000/fleet) or run `ao spawn ${{ github.event.repository.name }} ${{ github.event.issue.number }}`.'
+            });

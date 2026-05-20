@@ -1,3 +1,14 @@
+﻿---
+version: "v1.01.01"
+owner: "@getdigital2020"
+review_cadence: quarterly
+derived_from: ["project-hub"]
+confidence: high
+validation_count: 15
+staleness_condition: "Re-examine if: ADR tooling or format standards change in the ecosystem; 2+ projects find the current format insufficient to capture their decision types; Technology Selection Principles in the universal framework change."
+last_validated: 2026-03-12
+---
+
 # Architecture Decision Record
 
 Create an ADR documenting: $ARGUMENTS
@@ -5,9 +16,9 @@ Create an ADR documenting: $ARGUMENTS
 ## Instructions
 
 1. Check `docs/architecture/` for existing ADRs to determine the next number.
-2. If this is a technology selection decision, reference the Technology Selection Principles from the Universal Web Development Principles v2:
+2. If this is a technology selection decision, reference the Technology Selection Principles from the Universal Web Development Principles:
    - Evaluate against: team fit, community/ecosystem, maturity, performance ceiling, escape hatches, operational cost, architecture alignment
-   - Flag any anti-patterns: résumé-driven development, premature optimization, framework maximalism, "we might need it" trap, ignoring the exit
+   - Flag any anti-patterns: rÃ©sumÃ©-driven development, premature optimization, framework maximalism, "we might need it" trap, ignoring the exit
 3. Write the ADR using this format:
 
 ```markdown
