@@ -2,6 +2,12 @@
 
 ## Overview
 
+## Session Continuity — READ FIRST
+
+At the start of every session, read `docs/planning/NEXT_SESSION.md` before doing anything else — it carries the paste-ready handoff prompt and the current open follow-ups. If that file does not exist yet, create it at the end of your first session that lands material work, using the template in `C:/dev/project-hub/canonical/standards/session-continuity.md`. Update it at the end of every session that lands material work (on `main`, or on the active feature/integration branch when work-in-flight hasn't merged yet). If it is stale — its last-updated date is older than the most recent commit on the branch it describes — say so and update it as part of the session.
+
+*(This block is hub-owned and Tier 3+ only; `hub sync` may re-insert it. Everything else in this CLAUDE.md is project-owned.)*
+
 Cloudflare Worker acting as an agent gateway for GPIN autonomous agent infrastructure. Routes and governs agent actions across OpenAI, Notion, Pinata (IPFS), and Ethereum ENS, with an approval workflow system (manual/auto modes) and full audit trail via D1 and KV.
 
 ## Classification
