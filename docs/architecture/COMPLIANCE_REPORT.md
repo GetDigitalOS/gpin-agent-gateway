@@ -434,7 +434,7 @@ Tier 3 escalation was driven by OpenAI integration. Every AI principle in Tier 3
 11. **Preview deployments** via `wrangler --env preview` on PRs.
 12. **Dependabot** config (weekly, ecosystem: npm + github-actions).
 13. **PR template + CODEOWNERS** for the gateway repo.
-14. **Update CLAUDE.md** — fix the mojibake (`â€”`) introduced in earlier commits and fill the empty Overview section. (Note: `chore(claude): fix mojibake in agents and commands` in recent commits suggests this is in progress — verify CLAUDE.md is included.)
+14. **Update CLAUDE.md** — fix the mojibake (`—`) introduced in earlier commits and fill the empty Overview section. (Note: `chore(claude): fix mojibake in agents and commands` in recent commits suggests this is in progress — verify CLAUDE.md is included.)
 15. **AI cost controls** — per-request `max_tokens`, per-caller rate cap, spend alert in OpenAI dashboard, KV-backed response cache keyed by (prompt-hash, params).
 16. **Health endpoint** — `GET /health` returning JSON liveness + downstream-service ping status.
 

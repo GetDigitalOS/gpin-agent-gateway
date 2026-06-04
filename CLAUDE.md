@@ -1,4 +1,4 @@
-﻿# GPIN Agent Gateway
+# GPIN Agent Gateway
 
 ## Overview
 
@@ -12,7 +12,7 @@ Cloudflare Worker acting as an agent gateway for GPIN autonomous agent infrastru
 
 ## Classification
 
-- **Tier:** 3 â€” Application
+- **Tier:** 3 — Application
 - **Framework:** Universal Web Development Principles
 - **Classification:** See `docs/architecture/PROJECT_CLASSIFICATION.md`
 
@@ -38,8 +38,8 @@ wrangler tail         # Live log streaming
 ## Architecture
 
 All agent actions flow through the gateway's approval workflow:
-- **Manual mode** â€” Actions queue for human approval before execution
-- **Auto mode** â€” Actions execute immediately with audit logging
+- **Manual mode** — Actions queue for human approval before execution
+- **Auto mode** — Actions execute immediately with audit logging
 
 ### External Integrations
 - **OpenAI**: LLM completions and embeddings for agent intelligence
@@ -48,9 +48,9 @@ All agent actions flow through the gateway's approval workflow:
 - **Ethereum ENS**: Decentralized identity resolution
 
 ### Storage
-- **D1 database** â€” Persistent audit trail of all agent actions
-- **KV (events)** â€” Incoming event queue for agent requests
-- **KV (outbox)** â€” Outgoing action queue for processed results
+- **D1 database** — Persistent audit trail of all agent actions
+- **KV (events)** — Incoming event queue for agent requests
+- **KV (outbox)** — Outgoing action queue for processed results
 
 ## Git Conventions
 
