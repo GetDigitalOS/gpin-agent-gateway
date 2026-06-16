@@ -2,7 +2,7 @@ name: Deploy GPIN Agent Gateway
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main , 'auto/build/**', dev]
   workflow_dispatch:
 
 jobs:
